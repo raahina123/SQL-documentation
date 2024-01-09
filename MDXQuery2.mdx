@@ -1,0 +1,18 @@
+SELECT {[Measures].[Sales Amount],[Measures].[Total Product Cost]} ON 0,
+[Dim Product Subcategory 1].[English Product Subcategory Name].[English Product Subcategory Name]
+ON 1 FROM [Adventure Works DW2014] ;
+
+SELECT {[Measures].[Sales Amount],[Measures].[Total Product Cost]} ON COLUMNS,
+[Dim Product Subcategory 1].[English Product Subcategory Name].[English Product Subcategory Name]
+ON ROWS FROM [Adventure Works DW2014];
+
+SELECT {[Measures].[Sales Amount],[Measures].[Total Product Cost]} ON COLUMNS,
+[Dim Product Subcategory 1].[English Product Subcategory Name].[All]
+ON ROWS FROM [Adventure Works DW2014];
+
+SELECT {[Measures].[Sales Amount],[Measures].[Total Product Cost]} ON COLUMNS,
+({[Dim Product Subcategory 1].[English Product Subcategory Name].&[Bib-Shorts],[Dim Product Subcategory 1].[English Product Subcategory Name].&[Bottom Brackets]},
+[Dim Product Subcategory 1].[French Product Category Name].[French Product Category Name])ON ROWS FROM [Adventure Works DW2014];
+
+SELECT {[Measures].[Sales Amount],[Measures].[Total Product Cost]} ON COLUMNS,
+[Dim Product Subcategory 1].[French Product Category Name].[French Product Category Name]ON ROWS FROM [Adventure Works DW2014] WHERE [Dim Product Subcategory 1].[English Product Subcategory Name].&[Wheels];

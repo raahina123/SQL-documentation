@@ -1,0 +1,27 @@
+select[Measures].[Sales Amount] on columns
+,[Dim Product].[English Product Name].&[BB Ball Bearing].parent on rows
+from[Adventure Works DW2014];
+
+select[Measures].[Sales Amount] on columns
+,filter([Dim Product].[English Product Name].&[All-Purpose Bike Stand],[Measures].[Tax Amt]>500) on rows
+from[Adventure Works DW2014];
+
+select[Measures].[Sales Amount] on columns
+,[Dim Product].[English Product Name].&[BB Ball Bearing].parent.parent on rows
+from[Adventure Works DW2014];
+
+select[Measures].[Sales Amount] on columns
+,[Dim Product].[English Product Name].&[BB Ball Bearing].children on rows
+from[Adventure Works DW2014];
+
+select[Measures].[Sales Amount] on columns
+,non empty([Dim Product].[Color].[Color]) on rows
+from[Adventure Works DW2014];
+
+select[Measures].[Sales Amount] on columns
+,order([Dim Product].[Hierarchy].[English Product Name],[Measures].[Sales Amount],desc) on rows
+from[Adventure Works DW2014];
+
+select[Measures].[Sales Amount] on columns
+,[Dim Product].[Hierarchy].[English Product Name].&[Adjustable Race].SIBLINGS on rows
+from[Adventure Works DW2014];
